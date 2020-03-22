@@ -1,7 +1,22 @@
 version: '3'
 services:
-    kali-ext:
+    tor:
         build:
-            context: ./
-        volumes:
-            - ./Files:/tmp/files
+            context: ./tor
+        networks:
+            vpcbr:
+                ipv4_address: 10.50.0.5
+    kali:
+        build:
+            context: ./kali
+        networks:
+            vpcbr:
+                ipv4_address: 10.50.0.6
+        depends_on:
+            - tor
+networks:
+    vpcbr:
+        driver: bridge
+        ipam:
+            config:
+                - subnet: 10.50.0.0/16

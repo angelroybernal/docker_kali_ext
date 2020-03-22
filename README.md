@@ -1,2 +1,2 @@
-# Kali Linux Ext
-Simple docker container with some tools used for Internet Pentest installed. Built with docker-compose.
+# Kali External - Internet
+Simple docker network composed of a Tor proxy and a Kali Linux container with some tools.
